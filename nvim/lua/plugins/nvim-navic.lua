@@ -1,0 +1,40 @@
+return {
+	-- breadcrumbs
+	"SmiteshP/nvim-navic",
+	dependencies = { "neovim/nvim-lspconfig" },
+	opts = function()
+		return {
+			separator = " ",
+			highlight = true,
+			depth_limit = 5,
+			icons = {
+				Text = " ",
+				Method = " ",
+				Function = " ",
+				Constructor = " ",
+				Field = " ",
+				Variable = " ",
+				Class = " ",
+				Interface = " ",
+				Module = " ",
+				Property = " ",
+				Unit = " ",
+				Value = " ",
+				Enum = " ",
+				Keyword = " ",
+				Snippet = " ",
+				Color = " ",
+				File = " ",
+				Reference = " ",
+				Folder = " ",
+				EnumMember = " ",
+				Constant = " ",
+				Struct = " ",
+				Event = " ",
+				Operator = " ",
+				TypeParameter = " ",
+			},
+			lazy_update_context = true,
+		}
+	end,
+}
