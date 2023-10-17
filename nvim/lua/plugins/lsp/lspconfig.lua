@@ -7,8 +7,8 @@ return {
 		"mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"hrsh7th/cmp-nvim-lsp",
-		"SmiteshP/nvim-navic",
 		"jose-elias-alvarez/typescript.nvim",
+		"mfussenegger/nvim-jdtls",
 	},
 	config = function()
 		-- import neoconf plugin
@@ -26,16 +26,9 @@ return {
 		-- import cmp-nvim-lsp plugin
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-		-- import nvim-navic
-		local navic = require("nvim-navic")
-
 		local keymap = vim.keymap -- for conciseness
 
 		local on_attach = function(client, bufnr)
-			if client.server_capabilities.documentSymbolProvider then
-				navic.attach(client, bufnr)
-			end
-
 			local opts = { buffer = bufnr, noremap = true, silent = true }
 
 			-- set keybinds
@@ -83,19 +76,19 @@ return {
 
 			-- typescript
 			opts.desc = "Typescript organize imports"
-			keymap.set("n", "<leader>lo", "<cmd>TypescriptOrganizeImports<CR>", opts) -- organize imports
+			keymap.set("n", "<leader>co", "<cmd>TypescriptOrganizeImports<CR>", opts) -- organize imports
 
 			opts.desc = "Typescript add missing imports"
-			keymap.set("n", "<leader>lm", "<cmd>TypescriptAddMissingImports<CR>", opts) -- add missing imports
+			keymap.set("n", "<leader>cm", "<cmd>TypescriptAddMissingImports<CR>", opts) -- add missing imports
 
 			opts.desc = "Typescript fix all"
-			keymap.set("n", "<leader>lf", "<cmd>TypescriptFixAll<CR>", opts) -- typescript fix all
+			keymap.set("n", "<leader>cf", "<cmd>TypescriptFixAll<CR>", opts) -- typescript fix all
 
 			opts.desc = "Typescript remove unused"
-			keymap.set("n", "<leader>lru", "<cmd>TypescriptRemoveUnused<CR>", opts) -- typescript remove unused
+			keymap.set("n", "<leader>cru", "<cmd>TypescriptRemoveUnused<CR>", opts) -- typescript remove unused
 
 			opts.desc = "Typescript rename file"
-			keymap.set("n", "<leader>lrn", "<cmd>TypescriptRenameFile<CR>", opts) -- typescript rename file
+			keymap.set("n", "<leader>crn", "<cmd>TypescriptRenameFile<CR>", opts) -- typescript rename file
 		end
 
 		-- used to enable autocompletion (assign to every lsp server config)
@@ -164,13 +157,17 @@ return {
 						},
 					})
 				end,
+				-- configure graphql language server
 				["graphql"] = function()
-					-- configure graphql language server
 					lspconfig["graphql"].setup({
 						on_attach = on_attach,
 						capabilities = capabilities,
 						filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
 					})
+				end,
+				-- configure graphql language server
+				["jdtls"] = function()
+					return true
 				end,
 				-- configure jsonls
 				["jsonls"] = function()

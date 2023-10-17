@@ -6,6 +6,7 @@ vim.g.maplocalleader = " "
 -- appearance
 opt.cursorline = true
 opt.termguicolors = true
+opt.cmdheight = 0
 
 -- indentation
 opt.tabstop = 4

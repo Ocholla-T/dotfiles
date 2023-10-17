@@ -1,12 +1,14 @@
 return {
-	-- breadcrumbs
-	"SmiteshP/nvim-navic",
-	dependencies = { "neovim/nvim-lspconfig" },
-	opts = function()
-		return {
-			separator = " ",
+	"LunarVim/breadcrumbs.nvim",
+	dependencies = {
+		"SmiteshP/nvim-navic",
+		dependencies = {
+			"neovim/nvim-lspconfig",
+		},
+		opts = {
 			highlight = true,
-			depth_limit = 5,
+			depth_limit = 0,
+			depth_limit_indicator = "..",
 			icons = {
 				Text = " ",
 				Method = " ",
@@ -35,6 +37,16 @@ return {
 				TypeParameter = " ",
 			},
 			lazy_update_context = true,
-		}
+			separator = " " .. "" .. " ",
+			lsp = {
+				auto_attach = true,
+			},
+		},
+		config = function(_, opts)
+			require("nvim-navic").setup(opts)
+		end,
+	},
+	config = function()
+		require("breadcrumbs").setup()
 	end,
 }

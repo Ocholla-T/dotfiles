@@ -9,6 +9,7 @@ return {
 			formatters_by_ft = {
 				css = { { "prettierd", "prettier" } },
 				html = { { "prettierd", "prettier" } },
+				java = { "google-java-format" },
 				javascript = { { "prettierd", "prettier" } },
 				javascriptreact = { { "prettierd", "prettier" } },
 				json = { { "prettierd", "prettier" } },
