@@ -4,7 +4,7 @@ return {
 	event = "VeryLazy",
 	config = function()
 		local wilder = require("wilder")
-		wilder.setup({ modes = { ":", "/", "?" } })
+		wilder.setup({ modes = { ":", "/", "?" }, next_key = "<c-j>", previous_key = "<c-k>" })
 
 		wilder.set_option(
 			"renderer",

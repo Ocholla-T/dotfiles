@@ -1,5 +1,5 @@
 return {
-	"williambowman/mason.nvim",
+	"williamboman/mason.nvim",
 	config = function()
 		-- import mason
 		local mason = require("mason")

@@ -20,12 +20,13 @@ return {
 
 		telescope.setup({
 			defaults = {
+				color_devicons = true,
+				dynamic_preview_title = true,
 				layout_strategy = "horizontal",
 				layout_config = { prompt_position = "top" },
 				sorting_strategy = "ascending",
 				winblend = 0,
 				hidden = false,
-				color_devicons = true,
 				mappings = {
 					i = {
 						["<C-j>"] = {

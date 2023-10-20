@@ -4,15 +4,17 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- appearance
-opt.cursorline = true
-opt.termguicolors = true
 opt.cmdheight = 0
+opt.cursorline = true
+opt.numberwidth = 3
+opt.termguicolors = true
 
 -- indentation
-opt.tabstop = 4
+opt.expandtab = true
+opt.softtabstop = 4
 opt.shiftwidth = 4
 opt.shiftround = true
-opt.expandtab = true
+opt.tabstop = 4
 
 opt.smartindent = true
 
@@ -43,6 +45,13 @@ opt.splitright = true
 opt.splitbelow = true
 
 opt.scrolloff = 8
+opt.sidescrolloff = 8
 opt.signcolumn = "yes"
 
 opt.iskeyword:append("-")
+
+opt.timeoutlen = 250
+opt.synmaxcol = 300
+opt.laststatus = 2
+
+opt.updatetime = 50
