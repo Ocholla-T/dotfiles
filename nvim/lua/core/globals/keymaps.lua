@@ -1,39 +1,43 @@
-local keymap = vim.keymap -- for conciseness
+local wk = require("which-key")
 
---disable arrow keys
-keymap.set("", "<up>", "<nop>")
-keymap.set("", "<down>", "<nop>")
-keymap.set("", "<left>", "<nop>")
-keymap.set("", "<right>", "<nop>")
+wk.register({
+    -- buffer
+    ["<leader>b"] = { name = "+buffer" },
+    ["<leader>bb"] = { "<cmd>%bd|e#|bd#<CR>", "close all except current buffer" },
+    ["<leader>bx"] = { ":bd<CR>", "close current buffer" },
 
-keymap.set("i", "jk", "<ESC>")
-keymap.set("v", "jk", "<ESC>")
+    -- open lazy.nvim
+    ["<leader>l"] = { "<cmd>:Lazy<CR>", "lazy" },
 
--- move lines up and down
-keymap.set("n", "<M-j>", ":m .+1<CR>==", { noremap = true, silent = true })
-keymap.set("n", "<M-k>", ":m .-2<CR>==", { noremap = true, silent = true })
-keymap.set("i", "<M-j>", "<Esc>:m .+1<CR>==gi", { noremap = true, silent = true })
-keymap.set("i", "<M-k>", "<Esc>:m .-2<CR>==gi", { noremap = true, silent = true })
-keymap.set("v", "<M-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
-keymap.set("v", "<M-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+    -- split windows
+    ["<leader>s"] = { name = "+split" },
+    ["<leader>sv"] = { "<C-w>v", "vertically" }, 
+    ["<leader>sh"] = { "<C-w>s", "horizontally" },
 
--- split windows
-keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split vertically" }) -- split window vertically
-keymap.set("n", "<leader>sh", "<C-w>s", { desc = " Split horizontally" }) -- split window horizontally
+    -- quit neovim
+    ["<leader>q"] = { "<cmd>q<CR>", "quit neovim" },
 
--- save file
-keymap.set("n", "<leader>w", ":w<CR>", { noremap = true, silent = true, desc = "Save current buffer" })
 
--- quit buffer
-keymap.set("n", "<leader>q", ":q<CR>", { noremap = true, silent = true, desc = "Quit vim" })
+    -- save buffer
+    ["<leader>w"] = { "<cmd>w<CR>", "save current buffer" },
 
--- close current buffer
-keymap.set("n", "<leader>x", ":bd<CR>", { noremap = true, silent = true, desc = "Close current buffer" })
+    
+    -- move lines up and down
+    ["<M-k>"] = { "<cmd>m .-2<CR>==", "move line up" },
+    ["<M-j>"] = { "<cmd>m .+1<CR>==", "move line down" },
 
--- close all buffers except current buffer
-keymap.set(
-	"n",
-	"<leader>bb",
-	":%bd|e#|bd#<CR>",
-	{ noremap = true, silent = true, desc = "Close all except current buffer" }
-)
+})
+
+wk.register({
+    ["<M-j>"] = { "<Esc><cmd>m .+1<CR>==gi", "move line down" },
+    ["<M-k>"] = { "<Esc><cmd>m .-2<CR>==gi", "move line up" },
+}, { 
+    mode = "i" -- INSERT mode
+})
+
+wk.register({
+    ["<M-j>"] = { "<Esc><cmd>m '>+1<CR>gv=gv", "move line down" },
+    ["<M-k>"] = { "<Esc><cmd>m '<-2<CR>gv=gv", "move line up" },
+}, { 
+    mode = "v" -- VISUAL mode
+})

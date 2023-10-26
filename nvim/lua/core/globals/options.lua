@@ -15,9 +15,9 @@ opt.softtabstop = 4
 opt.shiftwidth = 4
 opt.shiftround = true
 opt.tabstop = 4
-
 opt.smartindent = true
 
+-- sync clipboard between OS and Neovim.
 opt.clipboard = "unnamedplus"
 
 -- line numbers
@@ -40,7 +40,7 @@ opt.incsearch = true
 opt.ignorecase = true
 opt.smartcase = true
 
---split windows
+-- split windows
 opt.splitright = true
 opt.splitbelow = true
 
@@ -48,10 +48,9 @@ opt.scrolloff = 8
 opt.sidescrolloff = 8
 opt.signcolumn = "yes"
 
-opt.iskeyword:append("-")
+-- set completeopt to have a better completion experience
+opt.completeopt = "menuone,noselect"
 
-opt.timeoutlen = 250
-opt.synmaxcol = 300
-opt.laststatus = 2
+opt.iskeyword:append("-")
 
 opt.updatetime = 50
