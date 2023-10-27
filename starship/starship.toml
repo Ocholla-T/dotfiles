@@ -20,7 +20,7 @@ discharging_symbol = '💀 '
 [character] # The name of the module we are configuring is 'character'
 success_symbol = '[➜](bold #bb9af7)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
 error_symbol = '[✗](bold red) ' # The 'error_symbol' segment is being set to '➜' with the color 'bold red'
-vimcmd_symbol = '[➜](bold #bb9af7)'
+vimcmd_symbol = '[➜](bold #f7768e)'
 
 [cmd_duration]
 format = "[$duration]($style)"
