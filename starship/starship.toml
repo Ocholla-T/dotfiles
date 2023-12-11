@@ -18,15 +18,15 @@ discharging_symbol = '💀 '
 
 # Replace the '❯' symbol in the prompt with '➜'
 [character] # The name of the module we are configuring is 'character'
-success_symbol = '[➜](bold #bb9af7)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+success_symbol = '[➜](bold #c4a7e7)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
 error_symbol = '[✗](bold red) ' # The 'error_symbol' segment is being set to '➜' with the color 'bold red'
-vimcmd_symbol = '[➜](bold #f7768e)'
+vimcmd_symbol = '[➜](bold #eb6f92)'
 
 [cmd_duration]
 format = "[$duration]($style)"
 min_time = 300
 show_milliseconds = false
-style = 'bold italic #bb9af7 bg:none'
+style = 'bold italic #9ccfd8 bg:none'
 
 [directory]
 home_symbol = " "

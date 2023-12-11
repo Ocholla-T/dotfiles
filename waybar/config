@@ -1,0 +1,33 @@
+{
+    "layer": "top",
+    "height": 24,
+    "margin-top": 4,
+    "margin-left": 10,
+    "margin-bottom": 0,
+    "margin-right": 10,
+    "spacing": 0,
+
+    "include": ["~/dotfiles/waybar/modules/index.json"],
+
+    "modules-left": [
+        "custom/appmenu",
+        "hyprland/workspaces",
+        "cpu",
+        "memory",
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "pulseaudio",
+        "network",
+        "battery",
+        "custom/exit",
+    ],
+
+    }
+
+// vim: set ft=json:
+

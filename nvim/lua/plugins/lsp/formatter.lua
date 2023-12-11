@@ -22,6 +22,7 @@ return {
 				lua = { "stylua" },
 				markdown = { { "prettierd", "prettier" } },
 				php = { "php_cs_fixer" },
+				sql = { "sqlfmt" },
 				typescript = { { "prettierd", "prettier" } },
 				typescriptreact = { { "prettierd", "prettier" } },
 				yaml = { { "prettierd", "prettier" } },
@@ -43,6 +44,6 @@ return {
 				timeout_ms = 5000,
 				lsp_fallback = true,
 			})
-		end, { desc = "Format file or range (in visual mode)" })
+		end, { desc = "format file or range (in visual mode)" })
 	end,
 }

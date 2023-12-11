@@ -119,6 +119,7 @@ return {
 		mason_lspconfig.setup({
 			ensure_installed = {
 				"angularls",
+				"bashls",
 				"cssls",
 				"html",
 				"emmet_ls",
@@ -233,9 +234,7 @@ return {
 						settings = { -- custom settings for lua
 							Lua = {
 								-- make the language server recognize "vim" global
-								diagnostics = {
-									globals = { "vim" },
-								},
+								diagnostics = { globals = { "vim" } },
 								workspace = {
 									-- make language server aware of runtime files
 									library = {

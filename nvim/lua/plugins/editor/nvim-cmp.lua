@@ -14,6 +14,8 @@ return {
 
 		local luasnip = require("luasnip")
 
+		local defaults = require("cmp.config.default")()
+
 		local cmp_kinds = {
 			Text = " ",
 			Method = " ",
@@ -45,6 +47,8 @@ return {
 		-- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
 		require("luasnip.loaders.from_vscode").lazy_load()
 
+		vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
+
 		cmp.setup({
 			completion = {
 				completeopt = "menu,menuone,preview,noselect",
@@ -66,9 +70,10 @@ return {
 			-- sources for autocompletion
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
-				{ name = "luasnip" }, -- snippets
-				{ name = "buffer" }, -- text within current buffer
-				{ name = "path" }, -- file system paths
+				{ name = "luasnip" },
+				{ name = "path" },
+			}, {
+				{ name = "buffer" },
 			}),
 			-- configure lspkind for vs-code like pictograms in completion menu
 			formatting = {
@@ -90,6 +95,12 @@ return {
 					return vim_item
 				end,
 			},
+			experimental = {
+				ghost_text = {
+					hl_group = "CmpGhostText",
+				},
+			},
+			sorting = defaults.sorting,
 			window = {
 				completion = cmp.config.window.bordered(),
 				documentation = cmp.config.window.bordered(),

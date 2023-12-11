@@ -10,16 +10,22 @@ return {
 			ensure_installed = {
 				"bash",
 				"css",
+				"diff",
 				"html",
 				"java",
 				"javascript",
+				"jsdoc",
 				"json",
+				"jsonc",
 				"lua",
 				"luadoc",
+				"markdown",
+				"markdown_inline",
 				"php",
 				"rasi",
 				"regex",
 				"scss",
+				"toml",
 				"tsx",
 				"typescript",
 				"vim",
@@ -60,22 +66,10 @@ return {
 				move = {
 					enable = true,
 					set_jumps = true, -- whether to set jumps in the jumplist
-					goto_next_start = {
-						["]m"] = "@function.outer",
-						["]]"] = "@class.outer",
-					},
-					goto_next_end = {
-						["]M"] = "@function.outer",
-						["]["] = "@class.outer",
-					},
-					goto_previous_start = {
-						["[m"] = "@function.outer",
-						["[["] = "@class.outer",
-					},
-					goto_previous_end = {
-						["[M"] = "@function.outer",
-						["[]"] = "@class.outer",
-					},
+					goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer" },
+					goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer" },
+					goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer" },
+					goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer" },
 				},
 				swap = {
 					enable = true,

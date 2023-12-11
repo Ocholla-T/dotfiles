@@ -1,0 +1,105 @@
+//  __  __           _       _
+// |  \/  | ___   __| |_   _| | ___  ___
+// | |\/| |/ _ \ / _` | | | | |/ _ \/ __|
+// | |  | | (_) | (_| | |_| | |  __/\__ \
+// |_|  |_|\___/ \__,_|\__,_|_|\___||___/
+//
+//
+// by ochollat (2023)
+// -----------------------------------------------------
+//
+{
+    // Battery
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon} {time}",
+        "format-icons": [" ", " ", " ", " ", " "]
+    },
+
+    "clock": {
+        "format": "<b>{:%I:%M %p %a %d %b}</b>",
+        "format-alt": "<b>{:%a %d %b}</b>"
+    },
+
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+
+    // rofi application launcher
+    "custom/appmenu": {
+        "format": "  ",
+        "on-click": "~/.config/waybar/scripts/app-launcher.sh",
+        "tooltip": false
+    },
+
+    // Power Menu
+    "custom/exit": {
+        "format": "",
+        "on-click": "~/.config/waybar/scripts/power.sh",
+        "tooltip": false
+    },
+
+    "hyprland/window": {
+        "rewrite": {
+            "(.*) - Brave": "$1",
+            "(.*) - Chromium": "$1",
+            "(.*) - Brave Search": "$1",
+            "(.*) - Outlook": "$1",
+            "(.*) Microsoft Teams": "$1"
+        },
+        "max-length": 200
+    },
+
+    "hyprland/workspaces": {
+        "all-outputs": false,
+        "active-only": "false",
+        "on-click": "activate",
+        "format": "{icon}",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "format-icons": {
+            "active": "",
+            "persistent": "",
+            "default": ""
+        }
+    },
+
+    "memory": {
+        "format": "{}% "
+    },
+
+    "network": {
+        "format-wifi": "  {essid}",
+        "format-ethernet": "  wired",
+        "tooltip": false,
+        "format-disconnected": "  Disconnected",
+        "on-click": "~/.config/waybar/scripts/rofi-wifi-menu.sh"
+    },
+
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": "{icon} {volume}% {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " Muted {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " Muted",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    }
+}

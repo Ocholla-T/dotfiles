@@ -1,0 +1,151 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family:
+        FontAwesome,
+        JetBrainsMono Nerd Font,
+        sans-serif;
+    font-size: 14px;
+}
+
+window#waybar {
+    background-color: alpha(#24283b, 0.85);
+    border: 2px solid #565f89;
+    color: #cfc9c2;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    border-radius: 8px;
+}
+
+tooltip {
+    background: alpha(#24283b, 0.85);
+    border: 2px solid #565f89;
+    padding: 8px;
+}
+
+tooltip label {
+    color: #cfc9c2;
+}
+
+/* -----------------------------------------------------
+ * battery
+ * ----------------------------------------------------- */
+
+#battery {
+    color: #9ece6a;
+    padding: 0 8px;
+    opacity: 0.8;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: #b4f9f8;
+}
+
+@keyframes blink {
+    to {
+        color: #e0af68;
+    }
+}
+
+#battery.critical:not(.charging) {
+    color: #e0af68;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/*
+* -------------------------------------------------------------
+* clock
+* ------------------------------------------------------------- */
+
+#clock {
+    padding: 0 8px;
+    color: #c0caf5;
+}
+
+/*
+* -------------------------------------------------------------
+* cpu
+* ------------------------------------------------------------- */
+
+#cpu {
+    color: #9ece6a;
+    padding: 0 8px;
+}
+
+/* -----------------------------------------------------
+ * appmenu
+ * ----------------------------------------------------- */
+
+#custom-appmenu {
+    font-size: 16px;
+    color: #b4f9f8;
+    padding-left: 8px;
+    margin-left: 0;
+}
+
+/* -----------------------------------------------------
+ * power menu
+ * ----------------------------------------------------- */
+
+#custom-exit {
+    margin-right: 8px;
+    padding: 0 8px;
+    color: #ff9e64;
+}
+
+/*
+* -------------------------------------------------------------
+* memory
+* ------------------------------------------------------------- */
+
+#memory {
+    color: #ff9e64;
+    padding: 0 8px;
+}
+
+/*
+* -------------------------------------------------------------
+* network
+* ------------------------------------------------------------- */
+
+#network {
+    padding: 0 8px;
+    color: #bb9af7;
+}
+
+/*
+* -------------------------------------------------------------
+* pulseaudio
+* ------------------------------------------------------------- */
+
+#pulseaudio {
+    color: #2ac3de;
+    padding: 0 8px;
+}
+
+/*
+* -------------------------------------------------------------
+* workspaces
+* ------------------------------------------------------------- */
+
+#workspaces label {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+}
+
+box#workspaces {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border-radius: 13px;
+    background-color: transparent;
+}
+
+#workspaces button {
+    color: alpha(#9aa5ce, 0.9);
+    background-color: transparent;
+}
